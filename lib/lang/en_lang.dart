@@ -1,0 +1,101 @@
+class EnLang
+{
+  static const Map<String, dynamic> en = {
+    "home" : "Home",
+    "welcomeMessageInHome" : "What do you want to buy today ?",
+    "blouses" : "Blouses",
+    "skirts" : "Skirts",
+    "abayas" : "Abayas",
+    "fav" : "Favourite",
+    "cart" : "Cart",
+    "offers" : "Offers",
+    "settings" : "Settings",
+    "validateName" : "Please enter your name",
+    "name" : "Name",
+    "createNewAccount" : "Create New Account",
+    "skip" : "Skip",
+    "validateEmail" :"Please enter your email",
+    "email" : "Email",
+    "validatePhone" : "Please enter your phone",
+    "phone" : "Phone",
+    "details" : "Product Details",
+    "addToCart" : "Add To Cart",
+    "aboutUs" : "About Us",
+    "contactUs" : "Contact Us" ,
+    "careTips" : "Care Tips",
+    "fashionGuide" : "Fashion Guide",
+    "gallary" : "Gallary",
+    "goToProductDetails" : "Go To Product Details",
+    "stories" : "Stories",
+    "loginSuccess" : "Successful login",
+    "error" : "Error",
+    "errorBody" : "There was an error, try again",
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "upload" : "Upload",
+    "caloriesDay" : "Calories/day",
+    "submit" : "Submit",
+    "select" : "Select",
+    "selectYourGoal" : "Select Your Goal",
+    "selectYourActivity" : "Select Your Activity",
+    "age" : "Age",
+    "yourWeight" : "Your Weight.",
+    "yourGoalAndActivity" : "Your goal and activity.",
+    "youCanChangeOrUpdateItLater" : "You can change or update it later..",
+    "yourHeight" : "Your Height.",
+    "male" : "ذكر",
+    "year" : "Year",
+    "month" : "Month",
+    "day" : "Day",
+    "female" : "Female",
+    "theseInformationWillHelpTheCoachToPersonalizeYourCourse" : "These information will help the coach to personalize your course.",
+    "generalQuestions" : "General Questions",
+    "messages" : "Messages",
+    "notification" : "Notification",
+    "duration" : "Duration",
+    "price" : "Price",
+    "courses" : "Courses",
+    "album" : "Album",
+    "review" : "Review",
+    "articles" : "Articles",
+    "all" : "All",
+    "viewAll" : "View All",
+    "coashes" : "Coashes",
+    "recentArticles" : "Recent Articles",
+    "chats" : "Chats",
+    "profile" : "Profile",
+    "exercises" : "Exercises",
+    "birthDate" : "Birth Date",
+    "confirmPassword" : "Confirm Password",
+    "gender" : "Gender",
+    "country" : "Country",
+    "phoneNumber" : "Phone Number",
+    "register" : "Register",
+    "joinUs" : "Join Us",
+    "forgetPassword" : "Forget Password",
+    "doNotHaveAnAccount" : "Don’t have an account ?",
+    "password" : "Password",
+    "emailOrPhone" : "Email OR Phone",
+    "validateEmailOrPhone" : "Please verify your phone number or email",
+    "validatePassword" : "Please verify your Password" ,
+    "yourLifeWithOurGymApp" : "Your Life With Our Gym App",
+    "transform" : "Transform",
+    "yourBody" : "Your Body",
+    "start" : "Start",
+    "next" : "Next",
+    "finish" : "Finish",
+    "login" : "Login" ,
+
+  };
+}
