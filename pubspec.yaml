@@ -53,6 +53,8 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   page_transition: ^2.0.9
   intro_slider: ^4.2.1
+  awesome_bottom_bar: any
+
 
 dev_dependencies:
   flutter_test:

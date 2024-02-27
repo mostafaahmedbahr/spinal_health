@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:spinal_health/screens/layout/layout_screen.dart';
 import 'package:spinal_health/screens/splash/splash_screen.dart';
 
 import '../../../core/colors.dart';
@@ -113,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
                                 print("object");
-                                Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const SplashScreen()));
+                                Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const LayoutScreen()));
                                 // loginCubit.login(
                                 //   mobile: loginCubit.mobileCon.text,
                                 //   password: loginCubit.passCon.text,
