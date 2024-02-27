@@ -21,7 +21,7 @@ class EmptyTokenWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SvgPicture.asset(
-            logoImage,
+            "logoImage",
             height: 170,
             width: 150,
             fit: BoxFit.cover,

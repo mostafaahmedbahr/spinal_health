@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:spinal_health/screens/layout/layout_screen.dart';
-import 'package:spinal_health/screens/splash/splash_screen.dart';
-
 import '../../../core/colors.dart';
 import '../../../lang/locale_keys.dart';
 import '../../../widgets/custom_Loading.dart';
@@ -58,19 +56,21 @@ class LoginScreen extends StatelessWidget {
                       const CustomSizedBox(
                         height: 40,
                       ),
-                     /// رقم التلفون
+
+                      /// رقم التلفون
                       CustomTextFormField(
                         controller: loginCubit.emailCon,
                         keyboardType: TextInputType.emailAddress,
                         validator: (String? value) {
                           MyValidators.emailValidator(value);
-
+                          return null;
                         },
                         hintText: LocaleKeys.email.tr(),
                       ),
                       const CustomSizedBox(
                         height: 18,
                       ),
+
                       /// الباسورد
                       CustomTextFormField(
                         obscureText: loginCubit.isVisible,
@@ -78,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                         keyboardType: TextInputType.visiblePassword,
                         validator: (String? value) {
                           MyValidators.passwordValidator(value);
-
+                          return null;
                         },
                         icon: IconButton(
                           color: AppColors.grey1Color,
@@ -104,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                             height: 60,
                             width: double.infinity,
                             btnColor: AppColors.thirdMainColor,
-                            borderColor:  AppColors.thirdMainColor,
+                            borderColor: AppColors.thirdMainColor,
                             btnText: CustomText(
                               text: LocaleKeys.login.tr(),
                               fontSize: 16,
@@ -113,8 +113,11 @@ class LoginScreen extends StatelessWidget {
                             ),
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                print("object");
-                                Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const LayoutScreen()));
+                                Navigator.push(
+                                    context,
+                                    PageTransition(
+                                        type: PageTransitionType.fade,
+                                        child: const LayoutScreen()));
                                 // loginCubit.login(
                                 //   mobile: loginCubit.mobileCon.text,
                                 //   password: loginCubit.passCon.text,

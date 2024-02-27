@@ -1,17 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
  import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:spinal_health/core/colors.dart';
 import 'package:spinal_health/screens/login/login_cubit/login_cubit.dart';
 import 'package:spinal_health/screens/splash/splash_cubit/splash_cubit.dart';
 import 'package:spinal_health/screens/splash/splash_screen.dart';
-
 import 'core/bloc_observer.dart';
+import 'core/utils/constants/constant.dart';
 import 'dio/sh/sh.dart';
 import 'lang/codegen_loader.g.dart';
+import 'lang/locale_keys.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +37,6 @@ void main() async{
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -48,14 +47,13 @@ class MyApp extends StatelessWidget {
         // BlocProvider(create: (context) =>  CareTipsCubit()..getCareTipsData()),
       ],
       child: MaterialApp(
-
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         debugShowCheckedModeBanner: false,
-        title: 'Spinal Health',
+        title: LocaleKeys.spinalHealth.tr(),
         theme: ThemeData(
-          fontFamily: "Anta",
+          fontFamily: fontApp,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
           scaffoldBackgroundColor: AppColors.mainColor,
