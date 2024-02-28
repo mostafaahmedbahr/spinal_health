@@ -1,10 +1,24 @@
+import 'package:easy_localization/easy_localization.dart';
+ import 'package:spinal_health/lang/locale_keys.dart';
+
 class MyValidators {
   static String? displayNameValidator(String? displayName) {
     if (displayName == null || displayName.isEmpty) {
-      return 'الحقل مطلوب';
+      return LocaleKeys.nameValidate.tr();
     }
     if (displayName.length < 3) {
-      return 'عدد الحروف يجب ان يكون اكبر من ٣ حروف';
+      return LocaleKeys.nameValidate.tr();
+    }
+
+    return null; // Return null if display name is valid
+  }
+
+  static String? displayMessageValidator(String? displayName) {
+    if (displayName == null || displayName.isEmpty) {
+      return LocaleKeys.messageValidate.tr();
+    }
+    if (displayName.length < 3) {
+      return LocaleKeys.messageValidate.tr();
     }
 
     return null; // Return null if display name is valid
@@ -12,21 +26,21 @@ class MyValidators {
 
   static String? emailValidator(String? value) {
     if (value!.isEmpty) {
-      return 'يرجي ادخال البريد الالكتروني';
+      return LocaleKeys.emailValidate.tr();
     }
     if (!RegExp(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
         .hasMatch(value)) {
-      return 'يرجي ادخال بريد الكتروني صالح';
+      return LocaleKeys.emailValidate2.tr();
     }
     return null;
   }
 
   static String? passwordValidator(String? value) {
     if (value!.isEmpty) {
-      return 'كلمة المرور مطلوبه';
+      return LocaleKeys.passwordValidate.tr();
     }
     if (value.length < 8) {
-      return 'كلمة المرور يجب الا تقل عن 8 احرف';
+      return LocaleKeys.passwordValidate2.tr();
     }
     return null;
   }
@@ -58,10 +72,10 @@ class MyValidators {
 
   static String? phoneValidator(String? value) {
     if (value!.isEmpty) {
-      return 'Please enter a phone number';
+      return  LocaleKeys.phoneValidate.tr();
     }
     if (value.length < 6) {
-      return 'phone number must be at least 11 numbers long';
+      return  LocaleKeys.phoneValidate2.tr();
     }
     return null;
   }

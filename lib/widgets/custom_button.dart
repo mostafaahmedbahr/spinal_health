@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import '../core/app_colors/colors.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({Key? key, required this.height,   this.width,   required this.btnColor, required this.btnText,required this.onPressed,   this.borderColor, this.radius}) : super(key: key);
+  const CustomButton({Key? key,   this.height = 60,   this.width,     this.btnColor = AppColors.primaryColor, required this.btnText,required this.onPressed,   this.borderColor, this.radius}) : super(key: key);
   final double height;
   final double? width;
-
   final Color btnColor;
   final Color? borderColor;
   final double? radius;
