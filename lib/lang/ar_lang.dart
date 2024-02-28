@@ -1,11 +1,20 @@
 class ArLang
 {
   static const Map<String, dynamic> ar = {
-    // "home" : "",
-    // "home" : "",
-    // "home" : "",
-    // "home" : "",
-    // "home" : "",
+    "spinalHealth" : "صحة العمود الفقري",
+    "login" : "تسجيل الدخول",
+    "email" : "البريد الإلكتروني",
+    "password" : "كلمة المرور",
+    "createNewAccount" : "إنشاء حساب جديد",
+    "skip" : "تخطي",
+    "home" : "الصفحة الرئيسية",
+    "lang" : "اللغة",
+    "arabicLang" : "اللغة العربية",
+    "englishLang" : "اللغة الإنجليزية",
+    "" : "",
+    // "" : "",
+    // "" : "",
+    // "" : "",
 
   };
 }

@@ -8,8 +8,13 @@ class EnLang
     "createNewAccount" : "Create New Account",
     "skip" : "Skip",
     "home" : "Home",
-    "lang" : "Lang",
+    "lang" : "Language",
     "arabicLang" : "Arabic Lang",
     "englishLang" : "English Lang",
+    "aboutUs" : "About Us",
+    // "" : "",
+    // "" : "",
+    // "" : "",
+    // "" : "",
   };
 }

@@ -1,6 +1,7 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:spinal_health/core/app_colors/colors.dart';
 import 'package:spinal_health/screens/layout/layout_screen.dart';
 import 'package:spinal_health/screens/login/login_screen.dart';
 
@@ -24,6 +25,7 @@ class ChangeLangScreen extends StatelessWidget {
         child: Scaffold(
           appBar: CustomAppBar(
             title: LocaleKeys.lang.tr(),
+            color: AppColors.blackColor,
           ),
           body: Padding(
             padding:   const EdgeInsets.all(AppPadding.p20),
