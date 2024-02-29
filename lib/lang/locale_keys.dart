@@ -24,6 +24,9 @@ abstract class LocaleKeys {
   static const name = "name";
   static const phone = "phone";
   static const send = "send";
+  static const types = "types";
+  static const categories = "categories";
+  static const profile = "profile";
 
 
 
