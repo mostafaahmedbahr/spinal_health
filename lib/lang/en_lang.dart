@@ -24,8 +24,8 @@ class EnLang
     "name" : "Name",
     "phone" : "Phone",
     "send" : "Send",
-    // "" : "",
-    // "" : "",
+    "types" : "Types",
+    "categories" : "Categories",
     // "" : "",
     // "" : "",
   };
