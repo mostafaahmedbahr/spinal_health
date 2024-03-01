@@ -27,7 +27,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
     ),
     TabItem(
       icon: Icons.search_sharp,
-      title: 'Shop',
+      title: 'Search',
     ),
     TabItem(
       icon: Icons.favorite_border,

@@ -6,6 +6,7 @@ import 'package:spinal_health/lang/locale_keys.dart';
 
 import '../../layout_screens/home/home_screen.dart';
 import '../../layout_screens/profile/profile_screen.dart';
+import '../../layout_screens/search/search_screen.dart';
 import 'layout_states.dart';
 
 
@@ -17,7 +18,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
   static int pageIndex = 0;
   List screens = [
      const HomeScreen(),
-    Text("2"),
+    const SearchScreen(),
     Text("3"),
     Text("4"),
     const ProfileScreen(),
@@ -28,7 +29,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
 
   List<String> appBarTitles = [
      LocaleKeys.home.tr(),
-     "2" ,
+    LocaleKeys.search.tr(),
      "3" ,
      "4" ,
     LocaleKeys.profile.tr(),

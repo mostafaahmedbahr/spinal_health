@@ -27,6 +27,6 @@ class EnLang
     "types" : "Types",
     "categories" : "Categories",
      "profile" : "Profile",
-    // "" : "",
+     "search" : "Search",
   };
 }
