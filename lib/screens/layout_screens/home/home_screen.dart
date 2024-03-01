@@ -8,6 +8,7 @@ import 'package:spinal_health/core/utils/nav.dart';
 import 'package:spinal_health/lang/locale_keys.dart';
 import 'package:spinal_health/widgets/custom_Loading.dart';
 
+import '../../category/category_screen.dart';
 import '../../type_details/type_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -130,6 +131,12 @@ class HomeScreen extends StatelessWidget {
               return InkWell(
                 onTap: () {
 
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          type: PageTransitionType.fade, child:     CategoryScreen(
+                        title: "Category (${index+1})",
+                      )));
                 },
                 child: Container(
                  decoration: BoxDecoration(
