@@ -28,5 +28,6 @@ class EnLang
     "categories" : "Categories",
      "profile" : "Profile",
      "search" : "Search",
+     "address" : "Address",
   };
 }

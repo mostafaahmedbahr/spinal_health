@@ -6,6 +6,7 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:spinal_health/core/colors.dart';
 import 'package:spinal_health/screens/drawer_screens/contact_us/contactUsCubit/contact_us_cubit.dart';
 import 'package:spinal_health/screens/layout/layout_cubit/layout_cubit.dart';
+import 'package:spinal_health/screens/layout_screens/profile/profile_cubit/profile_cubit.dart';
 import 'package:spinal_health/screens/layout_screens/search/search_cubit/search_cubit.dart';
 import 'package:spinal_health/screens/login/login_cubit/login_cubit.dart';
 import 'package:spinal_health/screens/splash/splash_cubit/splash_cubit.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ContactUsCubit()),
         BlocProvider(create: (context) =>  LayoutCubit()),
         BlocProvider(create: (context) =>  SearchCubit()),
+        BlocProvider(create: (context) =>  ProfileCubit()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

@@ -19,8 +19,6 @@ class LayoutCubit extends Cubit<LayoutStates> {
   List screens = [
      const HomeScreen(),
     const SearchScreen(),
-    Text("3"),
-    Text("4"),
     const ProfileScreen(),
 
 
@@ -30,8 +28,6 @@ class LayoutCubit extends Cubit<LayoutStates> {
   List<String> appBarTitles = [
      LocaleKeys.home.tr(),
     LocaleKeys.search.tr(),
-     "3" ,
-     "4" ,
     LocaleKeys.profile.tr(),
 
   ];

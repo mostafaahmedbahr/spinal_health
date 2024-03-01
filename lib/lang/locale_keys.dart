@@ -28,6 +28,7 @@ abstract class LocaleKeys {
   static const categories = "categories";
   static const profile = "profile";
   static const search = "search";
+  static const address = "address";
 
 
 
