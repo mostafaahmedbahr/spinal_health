@@ -39,7 +39,7 @@ class TypeDetailsScreen extends StatelessWidget {
                 ],
               ),
             ),
-
+ //
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
