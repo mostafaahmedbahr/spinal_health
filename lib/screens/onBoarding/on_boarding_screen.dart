@@ -24,7 +24,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     listContentConfig.add(
       const ContentConfig(
         styleTitle: TextStyle(
-          color: AppColors.whiteColor,
+          color: AppColors.blueColor,
         ),
         styleDescription: TextStyle(
             color: AppColors.blackColor
@@ -32,8 +32,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         title: "RULER",
         description:
         "Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of",
-        pathImage:  AppImages.onBoarding3,
-        backgroundColor: Color(0xff76A6D7),
+        pathImage: "assets/images/270.jpg",
+        backgroundColor:  AppColors.whiteColor,
       ),
     );
 
@@ -41,15 +41,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       const ContentConfig(
         title: "ERASER",
         styleTitle: TextStyle(
-          color: Color(0xff00B1C3),
+          color: AppColors.mainColor,
         ),
         styleDescription: TextStyle(
             color: AppColors.blackColor
         ),
         description: "Allow miles wound place the leave had. To sitting subject no improve studied limited",
 
-        pathImage: AppImages.onBoarding1,
-        backgroundColor: AppColors.whiteColor,
+        pathImage: "assets/images/1911.i305.025.S.m005.c10.realistic spine scoliosis set-01.jpg",
+        backgroundColor:  AppColors.whiteColor,
       ),
     );
 
@@ -64,8 +64,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         title: "PENCIL",
         description:
         "Ye indulgence unreserved connection alteration appearance",
-        pathImage:  AppImages.onBoarding4,
-        backgroundColor: Color(0xff239DAA),
+        pathImage:  "assets/images/tiqs_nfas_220720.jpg",
+        backgroundColor:  AppColors.whiteColor,
       ),
     );
   }
