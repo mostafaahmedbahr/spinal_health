@@ -37,11 +37,7 @@ class SearchScreen extends StatelessWidget {
                           color: Color(0xffA5A5A5),
                         )),
                     hintText: "Search",
-                    prefixIcon: IconButton(
-                      color: const Color(0xffA5A5A5),
-                      onPressed: () {},
-                      icon: SvgPicture.asset("assets/images/search.svg"),
-                    )),
+                     ),
               ),
             ),
             Expanded(
