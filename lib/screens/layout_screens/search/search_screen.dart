@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+ import 'package:page_transition/page_transition.dart';
 import 'package:spinal_health/screens/layout_screens/search/search_cubit/search_cubit.dart';
 import 'package:spinal_health/screens/layout_screens/search/search_cubit/search_states.dart';
 
 import '../../../core/app_colors/colors.dart';
+import '../../patient_details/patient_details_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -43,65 +44,74 @@ class SearchScreen extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return Container(
-                    height: 150,
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 5,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    alignment: Alignment.center,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Container(
-                            width: 128.0,
-                            height: 128.0,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                              color: Colors.black26,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Image.asset(
-                              'assets/images/happy-successful-muslim-businesswoman-posing-outside.jpg',
-                              fit: BoxFit.cover,
+                  return InkWell(
+                    onTap: (){
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              type: PageTransitionType.fade,
+                              child:   const PatientDetailsScreen ()));
+                    },
+                    child: Container(
+                      height: 150,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryColor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      alignment: Alignment.center,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
+                              width: 128.0,
+                              height: 128.0,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                color: Colors.black26,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Image.asset(
+                                'assets/images/happy-successful-muslim-businesswoman-posing-outside.jpg',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                          Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              searchCubit.names[index],
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: AppColors.whiteColor,
+                            Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                searchCubit.names[index],
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: AppColors.whiteColor,
+                                ),
                               ),
-                            ),
-                            const Text(
-                              "21 Years Old",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: AppColors.whiteColor,
+                              const Text(
+                                "21 Years Old",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: AppColors.whiteColor,
+                                ),
                               ),
-                            ),
-                            const Text(
-                              "Condition description",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: AppColors.whiteColor,
+                              const Text(
+                                "Condition description",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: AppColors.whiteColor,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },

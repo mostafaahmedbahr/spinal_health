@@ -47,7 +47,8 @@ class CategoryScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     PageTransition(
-                        type: PageTransitionType.fade, child:   PatientDetailsScreen()));
+                        type: PageTransitionType.fade,
+                        child:   PatientDetailsScreen ()));
 
               },
               child: Container(
