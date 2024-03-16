@@ -38,6 +38,7 @@ class LoginScreen extends StatelessWidget {
                       const CustomSizedBox(
                         height: 50,
                       ),
+                      /// logo
                       Image.asset(
                         AppImages.logo,
                         height: 200,
@@ -47,6 +48,7 @@ class LoginScreen extends StatelessWidget {
                       const CustomSizedBox(
                         height: 20,
                       ),
+                      ///login
                       CustomText(
                         text: LocaleKeys.login.tr(),
                         fontSize: 22,
@@ -62,8 +64,7 @@ class LoginScreen extends StatelessWidget {
                         controller: loginCubit.emailCon,
                         keyboardType: TextInputType.emailAddress,
                         validator: (String? value) {
-                          MyValidators.emailValidator(value);
-                          return null;
+                         return MyValidators.emailValidator(value);
                         },
                         hintText: LocaleKeys.email.tr(),
                       ),
@@ -77,8 +78,7 @@ class LoginScreen extends StatelessWidget {
                         controller: loginCubit.passCon,
                         keyboardType: TextInputType.visiblePassword,
                         validator: (String? value) {
-                          MyValidators.passwordValidator(value);
-                          return null;
+                          return MyValidators.passwordValidator(value);
                         },
                         icon: IconButton(
                           color: AppColors.grey1Color,
