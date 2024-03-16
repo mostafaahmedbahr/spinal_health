@@ -29,6 +29,12 @@ abstract class LocaleKeys {
   static const profile = "profile";
   static const search = "search";
   static const address = "address";
+  static const onBoarding1Title = "onBoarding1Title";
+  static const onBoarding2Title = "onBoarding2Title";
+  static const onBoarding3Title = "onBoarding3Title";
+  static const onBoarding1 = "onBoarding1";
+  static const onBoarding2 = "onBoarding2";
+  static const onBoarding3 = "onBoarding3";
 
 
 

@@ -29,5 +29,11 @@ class EnLang
      "profile" : "Profile",
      "search" : "Search",
      "address" : "Address",
+    "onBoarding1" : "This application ease the communication between the orthotist and the patient by continuous monitoring to improve the treatment results",
+    "onBoarding2" : "The vertebrae columns keep the upright as it supports the body weight and protect spinal cord and nerves.",
+    "onBoarding3" : "The spine has three natural curves that give it a side shape in the form of an S, these bends help the spine potentially to sustain a large amount of pressure by distributing the body weight evenly along the length of the coulmn",
+    "onBoarding1Title" : "Vertebrae Columns",
+    "onBoarding2Title" : "Spine",
+    "onBoarding3Title" : "Natural Curves",
   };
 }
