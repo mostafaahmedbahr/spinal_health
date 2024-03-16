@@ -112,7 +112,10 @@ class LoginScreen extends StatelessWidget {
                               textColor: AppColors.whiteColor,
                             ),
                             onPressed: () {
+                                 loginCubit.emailCon.text =  "m@gmail.com";
+                               loginCubit.passCon.text = "12345678";
                               if (formKey.currentState!.validate()) {
+
                                 Navigator.push(
                                     context,
                                     PageTransition(

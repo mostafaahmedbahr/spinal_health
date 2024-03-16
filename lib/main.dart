@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
  import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
@@ -6,6 +7,7 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:spinal_health/core/colors.dart';
 import 'package:spinal_health/screens/drawer_screens/contact_us/contactUsCubit/contact_us_cubit.dart';
 import 'package:spinal_health/screens/layout/layout_cubit/layout_cubit.dart';
+import 'package:spinal_health/screens/layout_screens/home/home_cubit/home_cubit.dart';
 import 'package:spinal_health/screens/layout_screens/profile/profile_cubit/profile_cubit.dart';
 import 'package:spinal_health/screens/layout_screens/search/search_cubit/search_cubit.dart';
 import 'package:spinal_health/screens/login/login_cubit/login_cubit.dart';
@@ -19,7 +21,7 @@ import 'lang/locale_keys.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  // Firebase.initializeApp();
+  Firebase.initializeApp();
   await SharedPreferencesHelper.init();
   await EasyLocalization.ensureInitialized();
   // DioHelper.init();
@@ -51,6 +53,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) =>  LayoutCubit()),
         BlocProvider(create: (context) =>  SearchCubit()),
         BlocProvider(create: (context) =>  ProfileCubit()),
+        BlocProvider(create: (context) =>  HomeCubit()..getSliderImagesData()
+        ..getTypesData()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
