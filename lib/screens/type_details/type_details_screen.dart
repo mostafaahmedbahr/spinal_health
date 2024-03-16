@@ -1,19 +1,27 @@
- import 'package:flutter/material.dart';
+ import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
   import 'package:readmore/readmore.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../widgets/custom_Loading.dart';
+
 class TypeDetailsScreen extends StatelessWidget {
-    TypeDetailsScreen({super.key, required this.title});
+    TypeDetailsScreen({super.key, required this.title, required this.url, required this.image, required this.des, required this.id});
   final String title;
-  final Uri _url = Uri.parse('https://flutter.dev');
-  Future<void> _launchUrl() async {
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
-    }
-  }
+  final String url;
+  final String image;
+  final String des;
+  final String id;
+
+
   @override
   Widget build(BuildContext context) {
-
+    final Uri _url = Uri.parse("$url");
+    Future<void> _launchUrl() async {
+      if (!await launchUrl(_url)) {
+        throw Exception('Could not launch $_url');
+      }
+    }
     return SafeArea(child: Scaffold(
       body: CustomScrollView(
           slivers: <Widget>[
@@ -25,14 +33,19 @@ class TypeDetailsScreen extends StatelessWidget {
                 alignment: Alignment.topRight,
                 children: [
                   FlexibleSpaceBar(
-
                     title:   Text(title, style:const TextStyle(color: Colors.red)),
-                    background: Image.asset(
-                      'assets/images/4033.jpg',
+                    background:  CachedNetworkImage(
                       fit: BoxFit.cover,
+                      imageUrl: image,
+                      progressIndicatorBuilder:
+                          (context, url, downloadProgress) =>
+                      const CustomLoading(),
+                      errorWidget: (context, url, error) =>
+                      const Icon(Icons.error),
                     ),
                   ),
-                  IconButton(onPressed: (){
+                  IconButton(
+                      onPressed: (){
                     _launchUrl();
                   },
                       icon: const Icon(Icons.link)),
@@ -44,7 +57,7 @@ class TypeDetailsScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: ReadMoreText(
-                  'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.'*30,
+                  des*30,
                   trimLines: 20,
                   colorClickableText: Colors.pink,
                   trimMode: TrimMode.Line,
@@ -58,16 +71,6 @@ class TypeDetailsScreen extends StatelessWidget {
               ),
             ),
 
-            // SliverList(
-            //   delegate: SliverChildBuilderDelegate(
-            //         (BuildContext context, int index) {
-            //       return ListTile(
-            //         title: Text('description'),
-            //       );
-            //     },
-            //     childCount: 50,
-            //   ),
-            // ),
 
           ] ,
       ),

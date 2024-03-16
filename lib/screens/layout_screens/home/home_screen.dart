@@ -104,8 +104,13 @@ class HomeScreen extends StatelessWidget {
                         Navigator.push(
                             context,
                             PageTransition(
-                                type: PageTransitionType.fade, child:    TypeDetailsScreen(
-                              title: "Type (${index+1})",
+                                type: PageTransitionType.fade,
+                                child:   TypeDetailsScreen(
+                                  id: homeCubit.typesList[index].id,
+                                  des: homeCubit.typesList[index].description,
+                                  image: homeCubit.typesList[index].image,
+                                  url: homeCubit.typesList[index].url,
+                                  title: homeCubit.typesList[index].title,
                             )));
                       },
                       child: Container(
