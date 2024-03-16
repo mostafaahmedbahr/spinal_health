@@ -1,10 +1,12 @@
- import 'package:flutter/material.dart';
+ import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
  import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
  import 'package:awesome_bottom_bar/widgets/inspired/inspired.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:spinal_health/core/app_colors/colors.dart';
+import 'package:spinal_health/lang/locale_keys.dart';
 import 'package:spinal_health/screens/layout/layout_cubit/layout_cubit.dart';
 import 'package:spinal_health/screens/layout/layout_cubit/layout_states.dart';
 
@@ -20,20 +22,20 @@ class LayoutScreen extends StatefulWidget {
 }
 
 class _LayoutScreenState extends State<LayoutScreen> {
-  static const List<TabItem> items = [
+  static   List<TabItem> items = [
     TabItem(
       icon: Icons.home,
-        title: 'Home',
+        title: LocaleKeys.home.tr(),
     ),
     TabItem(
       icon: Icons.search_sharp,
-      title: 'Search',
+      title: LocaleKeys.search.tr(),
     ),
 
 
     TabItem(
       icon: Icons.account_box,
-      title: 'profile',
+      title: LocaleKeys.profile.tr(),
     ),
   ];
 
@@ -108,27 +110,27 @@ class _LayoutScreenState extends State<LayoutScreen> {
                       Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const ChangeLangScreen()));
                     },
                     leading:const Icon(Icons.language),
-                    title: const Text('Language'),
+                    title:   Text(LocaleKeys.lang.tr(),),
                   ),
                   ListTile(
                     onTap: () {
                       Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const AboutUsScreen()));
                     },
                     leading: const Icon(Icons.people_alt),
-                    title: const Text('About Us'),
+                    title:   Text(LocaleKeys.aboutUs.tr(),),
                   ),
                   ListTile(
                     onTap: () {
                       Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const ContactUsScreen()));
                     },
                     leading: const Icon(Icons.contact_support),
-                    title: const Text('contact us'),
+                    title:   Text(LocaleKeys.contactUs.tr(),),
                   ),
-                  ListTile(
-                    onTap: () {},
-                    leading: const Icon(Icons.settings),
-                    title: const Text('Settings'),
-                  ),
+                  // ListTile(
+                  //   onTap: () {},
+                  //   leading: const Icon(Icons.settings),
+                  //   title: const Text('Settings'),
+                  // ),
                   const Spacer(),
                   DefaultTextStyle(
                     style: const TextStyle(

@@ -30,5 +30,9 @@ class ArLang
     "onBoarding1Title" : "أعمدة فقرية",
     "onBoarding2Title" : "العمود الفقري",
     "onBoarding3Title" : "منحنيات طبيعية",
+    "categories" : "الاقسام",
+    "types" : "الانواع",
+    "search" : "البحث",
+    "profile" : "الملف الشخصي",
   };
 }

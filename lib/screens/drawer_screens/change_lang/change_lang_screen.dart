@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:spinal_health/core/app_colors/colors.dart';
 import 'package:spinal_health/screens/layout/layout_screen.dart';
 import 'package:spinal_health/screens/login/login_screen.dart';
+import 'package:spinal_health/screens/splash/splash_screen.dart';
 
 import '../../../core/app_images/app_images.dart';
 import '../../../core/app_padding/app_padding.dart';
@@ -42,7 +43,7 @@ class ChangeLangScreen extends StatelessWidget {
                       debugPrint (lang);
                       AppNav.customNavigator(
                         context: context,
-                        screen: const LayoutScreen(),
+                        screen: const SplashScreen(),
                         finish: true,
                       );
                     }
@@ -62,7 +63,7 @@ class ChangeLangScreen extends StatelessWidget {
                     //  LayoutCubit.pageIndex = 1;
                       AppNav.customNavigator(
                         context: context,
-                        screen: const LayoutScreen() ,
+                        screen: const SplashScreen(),
                         finish: true,
                       );
 
