@@ -1,4 +1,5 @@
- import 'package:flutter/cupertino.dart';
+ import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../models/general_model.dart';
@@ -17,35 +18,37 @@ class ContactUsCubit extends Cubit<ContactUsStates> {
   var messageCon = TextEditingController();
   var emailCon = TextEditingController();
 
-//   GeneralModel? contactUsModel;
-//   contactUs({
-//     required String name,
-//     required String message,
-//     required String mobile,
-//     required String email,
-// })
-//   {
-//     emit(ContactUsLoadingState());
-//     DioHelper.postData(
-//         url: AppUrl.contactUsUrl,
-//       data: {
-//         'name': name,
-//         'mobile': mobile,
-//         'type_contact': '5',
-//         'details': message,
-//         'email': email,
-//       },
-//     ).then((value){
-//
-//       contactUsModel = GeneralModel.fromJson(value.data);
-//       debugPrint("mostafa contact Us done");
-//       emit(ContactUsSuccessState(contactUsModel));
-//     }).catchError((error){
-//       debugPrint(error.toString());
-//       emit(ContactUsErrorState());
-//     });
-//   }
 
+
+
+
+  Future<void> sendMessageToFirebase({
+    required String name,
+    required String message,
+    required String mobile,
+    required String email,
+}) async {
+    emit(ContactUsLoadingState());
+    try {
+      // ارسال الرسالة إلى مجموعة بيانات Firestore
+      await FirebaseFirestore.instance.collection('contactUsMessages').add({
+        'name': name,
+        'email': email,
+        'message': message,
+        'phone': mobile,
+        'timestamp': FieldValue.serverTimestamp(), // تخزين الوقت الحالي
+      });
+      emit(ContactUsSuccessState());
+      nameCon.text = " ";
+      emailCon.text = " ";
+      phoneCon.text = " ";
+      messageCon.text = " ";
+      print('تم إرسال الرسالة بنجاح');
+    } catch (error) {
+      emit(ContactUsErrorState());
+      print('حدث خطأ أثناء إرسال الرسالة: $error');
+    }
+  }
 
 
 }

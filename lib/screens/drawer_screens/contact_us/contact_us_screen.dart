@@ -86,13 +86,12 @@ class ContactUsScreen extends StatelessWidget {
                             // print(contactUsCubit.selectedContactUsType.toString());
                             if (formKey3.currentState!.validate()) {
                               print("yes");
-                              // contactUsCubit.contactUs(
-                              //   name: contactUsCubit.nameCon.text,
-                              //   message:  contactUsCubit.messageCon.text,
-                              //   mobile: contactUsCubit.phoneCon.text,
-                              //   email: contactUsCubit.emailCon.text,
-                              //   typeContact :  contactUsCubit.selectedContactUsType.toString(),
-                              // );
+                              contactUsCubit.sendMessageToFirebase(
+                                name: contactUsCubit.nameCon.text,
+                                message:  contactUsCubit.messageCon.text,
+                                mobile: contactUsCubit.phoneCon.text,
+                                email: contactUsCubit.emailCon.text,
+                              );
                             }
                           },
                         );
