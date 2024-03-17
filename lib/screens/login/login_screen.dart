@@ -13,6 +13,8 @@ import '../../../widgets/custom_text.dart';
 import '../../../widgets/custom_text_form_filed.dart';
 import '../../core/app_images/app_images.dart';
 import '../../core/app_validator/app_validator.dart';
+import '../../core/utils/nav.dart';
+import '../register/register_screen.dart';
 import 'login_cubit/login_cubit.dart';
 import 'login_cubit/login_states.dart';
 
@@ -147,11 +149,11 @@ class LoginScreen extends StatelessWidget {
                           textColor: AppColors.blackColor,
                         ),
                         onPressed: () {
-                          // AppNav.customNavigator(
-                          //   context: context,
-                          //   screen: RegisterScreen(),
-                          //   finish: false,
-                          // );
+                          AppNav.customNavigator(
+                            context: context,
+                            screen: const RegisterScreen(),
+                            finish: false,
+                          );
                         },
                       ),
                       const CustomSizedBox(

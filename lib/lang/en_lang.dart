@@ -9,6 +9,7 @@ class EnLang
     "skip" : "Skip",
     "home" : "Home",
     "lang" : "Language",
+    "registerIsSuccess" : "Register Is Success",
     "arabicLang" : "Arabic Lang",
     "englishLang" : "English Lang",
     "aboutUs" : "About Us",

@@ -7,6 +7,7 @@ class ArLang
     "password" : "كلمة المرور",
     "createNewAccount" : "إنشاء حساب جديد",
     "skip" : "تخطي",
+    "registerIsSuccess" : "تم التسجيل بنجاح",
     "home" : "الصفحة الرئيسية",
     "lang" : "اللغة",
     "arabicLang" : "اللغة العربية",

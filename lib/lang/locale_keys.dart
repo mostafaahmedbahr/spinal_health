@@ -9,6 +9,7 @@ abstract class LocaleKeys {
   static const skip = "skip";
   static const home = "home";
   static const lang = "lang";
+  static const registerIsSuccess = "registerIsSuccess";
   static const arabicLang = "arabicLang";
   static const englishLang = "englishLang";
   static const aboutUs = "aboutUs";

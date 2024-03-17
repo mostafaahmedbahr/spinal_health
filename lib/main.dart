@@ -11,6 +11,7 @@ import 'package:spinal_health/screens/layout_screens/home/home_cubit/home_cubit.
 import 'package:spinal_health/screens/layout_screens/profile/profile_cubit/profile_cubit.dart';
 import 'package:spinal_health/screens/layout_screens/search/search_cubit/search_cubit.dart';
 import 'package:spinal_health/screens/login/login_cubit/login_cubit.dart';
+import 'package:spinal_health/screens/register/register_cubit/register_cubit.dart';
 import 'package:spinal_health/screens/splash/splash_cubit/splash_cubit.dart';
 import 'package:spinal_health/screens/splash/splash_screen.dart';
 import 'core/bloc_observer.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => SplashCubit()),
         BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => ContactUsCubit()),
         BlocProvider(create: (context) =>  LayoutCubit()),
         BlocProvider(create: (context) =>  SearchCubit()),
