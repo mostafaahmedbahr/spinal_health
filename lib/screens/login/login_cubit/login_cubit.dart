@@ -1,5 +1,9 @@
- import 'package:flutter/material.dart';
+ import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spinal_health/dio/sh/sh.dart';
 
  import 'login_states.dart';
 
@@ -17,6 +21,26 @@ class LoginCubit extends Cubit<LoginStates> {
   void changeSuffixIcon() {
     isVisible = !isVisible;
     emit(ChangeSuffixIconState());
+  }
+
+
+  void login()async
+  {
+    emit(LoginLoadingState());
+    FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailCon.text,
+      password: passCon.text,
+    ).then((value)
+    {
+      emit(LoginSuccessState());
+      log(value.user!.uid);
+      SharedPreferencesHelper.saveData(key: "userId", value: value.user?.uid);
+      log("success");
+    }).catchError((error)
+    {
+      emit(LoginErrorState(error.toString()));
+      log("error in login ${error.toString()}");
+    });
   }
 
 

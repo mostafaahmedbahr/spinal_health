@@ -25,7 +25,15 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var formKey = GlobalKey<FormState>();
     return BlocConsumer<LoginCubit, LoginStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if(state is LoginSuccessState){
+          Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.fade,
+                  child: const LayoutScreen()));
+        }
+      },
       builder: (context, state) {
         var loginCubit = LoginCubit.get(context);
         return SafeArea(
@@ -117,17 +125,7 @@ class LoginScreen extends StatelessWidget {
                                  loginCubit.emailCon.text =  "m@gmail.com";
                                loginCubit.passCon.text = "12345678";
                               if (formKey.currentState!.validate()) {
-
-                                Navigator.push(
-                                    context,
-                                    PageTransition(
-                                        type: PageTransitionType.fade,
-                                        child: const LayoutScreen()));
-                                // loginCubit.login(
-                                //   mobile: loginCubit.mobileCon.text,
-                                //   password: loginCubit.passCon.text,
-                                //   mobileToken: fcmToke,
-                                // );
+                                loginCubit.login();
                               }
                             },
                           );
