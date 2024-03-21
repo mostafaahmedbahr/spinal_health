@@ -36,5 +36,7 @@ class EnLang
     "onBoarding1Title" : "Vertebrae Columns",
     "onBoarding2Title" : "Spine",
     "onBoarding3Title" : "Natural Curves",
+    "myDetails" : "My Details",
+    "showMyDetails" : "Click Here To Show Your Details"
   };
 }

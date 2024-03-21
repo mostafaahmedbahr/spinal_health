@@ -15,6 +15,7 @@ import 'package:uuid/uuid.dart';
 
 import '../../../dio/sh/sh.dart';
 import '../../../models/user_model.dart';
+import '../../layout_screens/profile/profile_cubit/profile_cubit.dart';
 
 class RegisterCubit extends Cubit<RegisterStates> {
   RegisterCubit() : super(RegisterInitState());
@@ -49,6 +50,7 @@ void register({
     );
     SharedPreferencesHelper.saveData(key: "userId", value: value.user?.uid);
     emit(RegisterSuccessState());
+    ProfileCubit.get(context).getUserById(value.user!.uid);
     NewToast.showNewSuccessToast(msg: LocaleKeys.registerIsSuccess.tr(), context: context);
   }).catchError((error) {
     emit(RegisterErrorState(error: error.toString()));

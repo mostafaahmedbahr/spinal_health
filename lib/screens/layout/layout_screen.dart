@@ -10,6 +10,7 @@ import 'package:spinal_health/lang/locale_keys.dart';
 import 'package:spinal_health/screens/layout/layout_cubit/layout_cubit.dart';
 import 'package:spinal_health/screens/layout/layout_cubit/layout_states.dart';
 
+import '../../dio/sh/sh.dart';
 import '../drawer_screens/about_us/about_us_screen.dart';
 import '../drawer_screens/change_lang/change_lang_screen.dart';
 import '../drawer_screens/contact_us/contact_us_screen.dart';
@@ -27,6 +28,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
       icon: Icons.home,
         title: LocaleKeys.home.tr(),
     ),
+    if(SharedPreferencesHelper.getData(key: "userType") =="Doctor")
     TabItem(
       icon: Icons.search_sharp,
       title: LocaleKeys.search.tr(),
@@ -54,6 +56,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
     return BlocConsumer<LayoutCubit , LayoutStates>(
       listener: (context , state ){},
       builder: (context , state ){
+        SharedPreferencesHelper.getData(key: "userType");
         var layoutCubit = LayoutCubit.get(context);
         return AdvancedDrawer(
           backdrop: Container(

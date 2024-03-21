@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spinal_health/lang/locale_keys.dart';
 
+import '../../../dio/sh/sh.dart';
 import '../../layout_screens/home/home_screen.dart';
 import '../../layout_screens/profile/profile_screen.dart';
 import '../../layout_screens/search/search_screen.dart';
@@ -18,6 +19,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
   static int pageIndex = 0;
   List screens = [
      const HomeScreen(),
+    if(SharedPreferencesHelper.getData(key: "userType") =="Doctor")
     const SearchScreen(),
     const ProfileScreen(),
 

@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spinal_health/screens/layout_screens/profile/profile_cubit/profile_states.dart';
 
+import '../../../../dio/sh/sh.dart';
+
 class ProfileCubit extends Cubit<ProfileStates> {
   ProfileCubit() : super(ProfileInitState());
 
@@ -23,6 +25,10 @@ class ProfileCubit extends Cubit<ProfileStates> {
 
       // التأكد من أن الوثيقة موجودة وأنها ليست فارغة
       if (userSnapshot.exists && userSnapshot.data() != null) {
+         print("mostafa bahr in profile cubit ");
+         print(userSnapshot.data());
+         SharedPreferencesHelper.saveData(key: "userType", value:userSnapshot.data()!["userType"] );
+         print(userSnapshot.data()!["userType"]);
         // إرجاع بيانات المستخدم
         return userSnapshot;
       } else {

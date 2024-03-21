@@ -35,5 +35,7 @@ class ArLang
     "types" : "الانواع",
     "search" : "البحث",
     "profile" : "الملف الشخصي",
+    "myDetails" : "التفاصيل",
+    "showMyDetails" : "اضغط هنا لرؤية التافاصيل",
   };
 }

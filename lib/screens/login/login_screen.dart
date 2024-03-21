@@ -14,6 +14,7 @@ import '../../../widgets/custom_text_form_filed.dart';
 import '../../core/app_images/app_images.dart';
 import '../../core/app_validator/app_validator.dart';
 import '../../core/utils/nav.dart';
+import '../../dio/sh/sh.dart';
 import '../register/register_screen.dart';
 import 'login_cubit/login_cubit.dart';
 import 'login_cubit/login_states.dart';
@@ -27,6 +28,7 @@ class LoginScreen extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginStates>(
       listener: (context, state) {
         if(state is LoginSuccessState){
+          SharedPreferencesHelper.getData(key: "userType");
           Navigator.push(
               context,
               PageTransition(
@@ -122,10 +124,10 @@ class LoginScreen extends StatelessWidget {
                               textColor: AppColors.whiteColor,
                             ),
                             onPressed: () {
-                                 loginCubit.emailCon.text =  "m@gmail.com";
-                               loginCubit.passCon.text = "12345678";
+                                 loginCubit.emailCon.text =  "mp1@gmail.com";
+                               loginCubit.passCon.text = "123456789";
                               if (formKey.currentState!.validate()) {
-                                loginCubit.login();
+                                loginCubit.login(context);
                               }
                             },
                           );

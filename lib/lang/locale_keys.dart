@@ -36,6 +36,8 @@ abstract class LocaleKeys {
   static const onBoarding1 = "onBoarding1";
   static const onBoarding2 = "onBoarding2";
   static const onBoarding3 = "onBoarding3";
+  static const myDetails = "myDetails";
+  static const showMyDetails = "showMyDetails";
 
 
 

@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spinal_health/dio/sh/sh.dart';
+import 'package:spinal_health/screens/layout_screens/profile/profile_cubit/profile_cubit.dart';
 
  import 'login_states.dart';
 
@@ -24,7 +25,7 @@ class LoginCubit extends Cubit<LoginStates> {
   }
 
 
-  void login()async
+  void login(context)async
   {
     emit(LoginLoadingState());
     FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -34,6 +35,7 @@ class LoginCubit extends Cubit<LoginStates> {
     {
       emit(LoginSuccessState());
       log(value.user!.uid);
+      ProfileCubit.get(context).getUserById(value.user!.uid);
       SharedPreferencesHelper.saveData(key: "userId", value: value.user?.uid);
       log("success");
     }).catchError((error)
