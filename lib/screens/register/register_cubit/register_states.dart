@@ -19,4 +19,5 @@ class CreateUserErrorState extends RegisterStates{
 
 class ChangeSuffixIconState extends RegisterStates{}
 class UploadImageSuccessState extends RegisterStates{}
+class UploadImageToFireStorageSuccessState extends RegisterStates{}
 

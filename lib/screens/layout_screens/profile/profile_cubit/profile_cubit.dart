@@ -13,6 +13,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
   var phoneCon = TextEditingController();
   var addressCon = TextEditingController();
 
+  String? img;
 
 
   Future<DocumentSnapshot<Map<String, dynamic>>> getUserById(String userId) async {

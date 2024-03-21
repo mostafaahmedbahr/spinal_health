@@ -1,4 +1,5 @@
- import 'package:cloud_firestore/cloud_firestore.dart';
+ import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,10 +20,6 @@ class ProfileScreen extends StatelessWidget {
       listener: (context, state) {},
     builder: (context, state) {
         var profileCubit = ProfileCubit.get(context);
-        profileCubit.nameCon.text = "mostafa";
-        profileCubit.emailCon.text = "mostafa@gmail.com";
-        profileCubit.phoneCon.text = "01110690299";
-        profileCubit.addressCon.text = "giza";
         return  BlocConsumer<ProfileCubit , ProfileStates>(
           listener: (context , state ){},
           builder: (context , state ){
@@ -39,7 +36,9 @@ class ProfileScreen extends StatelessWidget {
                     var userData = snapshot.data!.data();
                     profileCubit.nameCon.text = userData!['name'];
                     profileCubit.phoneCon.text = userData['phone'];
-                    profileCubit.nameCon.text = userData['email'];
+                    profileCubit.emailCon.text = userData['email'];
+                    profileCubit.addressCon.text = userData['address'];
+                    profileCubit.img = userData['img'];
                     return Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -52,10 +51,21 @@ class ProfileScreen extends StatelessWidget {
                 color: Colors.black26,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Image.asset(
-                'assets/images/IMG_٢٠٢٢٠٧٢١_٠٢٥٤٠٤.jpg',
+              child:
+              CachedNetworkImage(
                 fit: BoxFit.cover,
-              ),
+                imageUrl: profileCubit.img.toString(),
+                progressIndicatorBuilder:
+                    (context, url, downloadProgress) =>
+                const CustomLoading(),
+                errorWidget: (context, url, error) =>
+                const Icon(Icons.error),
+              )
+              // :
+              // Image.asset(
+              //   'assets/images/IMG_٢٠٢٢٠٧٢١_٠٢٥٤٠٤.jpg',
+              //   fit: BoxFit.cover,
+              // ),
             ),
             const SizedBox(height: 20,),
             CustomTextFormField(

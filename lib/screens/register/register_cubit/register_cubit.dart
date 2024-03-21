@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spinal_health/core/new_toast/new_toast.dart';
@@ -26,6 +27,9 @@ void register({
   required String email,
   required String phone,
   required String password,
+  required String userType,
+  required String imageUrl,
+  required String address,
   required BuildContext context,
 }) async
 {
@@ -35,8 +39,10 @@ void register({
     password: password,
   ).then((value) {
     createUsers(
+      address: address,
       email: email,
-      img: "",
+      img: imageUrl,
+      userType: userType,
       name: name,
       phone: phone,
       uid: "${value.user?.uid}",
@@ -62,14 +68,18 @@ void register({
     required String email,
     required String uid,
     required String img,
+    required String userType,
+    required String address,
   }) async
   {
     emit(CreateUserLoadingState());
     UserModel userModel = UserModel(uid: uid,
         phone: phone,
         email: email,
+        address: address,
         name: name,
         img: img,
+        userType: userType,
         bio: '');
     FirebaseFirestore.instance.collection("users").doc(uid).set(
         userModel.toMap()).then((value) {
@@ -89,6 +99,7 @@ void register({
   var nameCon = TextEditingController();
   var addressCon = TextEditingController();
 
+
   bool isVisible = true;
 
   void changeSuffixIcon() {
@@ -105,8 +116,31 @@ void register({
     );
     file = File(result?.files.single.path ?? "");
     debugPrint("---------- uplod is done ------------");
+    uploadImageToFirebase();
     emit(UploadImageSuccessState());
   }
+
+  String? imageUrl;
+  Future<void> uploadImageToFirebase() async {
+    if (file == null) return;
+    try {
+      final Reference storageReference = FirebaseStorage.instance.ref().child('users_images/${DateTime.now()}.jpg');
+      final UploadTask uploadTask = storageReference.putFile(file!);
+      final TaskSnapshot snapshot = await uploadTask.whenComplete(() => null);
+      final String downloadUrl = await snapshot.ref.getDownloadURL();
+      imageUrl = downloadUrl;
+      log(imageUrl!);
+     emit(UploadImageToFireStorageSuccessState());
+    } catch (error) {
+      log('Error uploading image: $error');
+    }
+  }
+
+  String? userType;
+  final List<String> userTypesList = [
+    'Doctor',
+    'Patient',
+  ];
 
 
 }

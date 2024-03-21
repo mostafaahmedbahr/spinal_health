@@ -66,6 +66,7 @@ dependencies:
   firebase_storage:
   cloud_firestore:
   uuid: ^4.3.3
+  dropdown_button2: ^2.3.9
 
 
 dev_dependencies:
