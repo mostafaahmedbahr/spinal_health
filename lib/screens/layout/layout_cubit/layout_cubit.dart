@@ -19,7 +19,6 @@ class LayoutCubit extends Cubit<LayoutStates> {
   static int pageIndex = 0;
   List screens = [
      const HomeScreen(),
-    if(SharedPreferencesHelper.getData(key: "userType") =="Doctor")
     const SearchScreen(),
     const ProfileScreen(),
 
@@ -39,5 +38,25 @@ class LayoutCubit extends Cubit<LayoutStates> {
     emit(ChangeBottomNavState());
   }
 
+
+
+
+  static int pageIndexForPatient = 0;
+  List screensPatient = [
+    const HomeScreen(),
+    const ProfileScreen(),
+  ];
+
+
+  List<String> appBarTitlesPatient = [
+    LocaleKeys.home.tr(),
+    LocaleKeys.profile.tr(),
+
+  ];
+
+  changeBottomNavPatient(index , context) {
+    pageIndexForPatient = index;
+    emit(ChangeBottomNavState2());
+  }
 
 }

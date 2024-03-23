@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => ContactUsCubit()),
         BlocProvider(create: (context) =>  LayoutCubit()),
-        BlocProvider(create: (context) =>  SearchCubit()),
+        BlocProvider(create: (context) =>  SearchCubit()..getAllPatientData()),
         BlocProvider(create: (context) =>  ProfileCubit()),
         BlocProvider(create: (context) =>  HomeCubit()..getSliderImagesData()
         ..getTypesData()),

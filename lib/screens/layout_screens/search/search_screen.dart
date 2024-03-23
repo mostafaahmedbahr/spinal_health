@@ -5,6 +5,7 @@ import 'package:spinal_health/screens/layout_screens/search/search_cubit/search_
 import 'package:spinal_health/screens/layout_screens/search/search_cubit/search_states.dart';
 
 import '../../../core/app_colors/colors.dart';
+import '../../../widgets/shimmer_loading.dart';
 import '../../patient_details/patient_details_screen.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -16,14 +17,13 @@ class SearchScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var searchCubit = SearchCubit.get(context);
-
         return Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(10),
               child: TextFormField(
                 onChanged: (value) {
-                  searchCubit.filterNames(value);
+                  searchCubit.searchPatients(value);
                 },
                 // controller: searchCubit.tradingNewsSearchCon,
                 decoration: InputDecoration(
@@ -41,10 +41,18 @@ class SearchScreen extends StatelessWidget {
                      ),
               ),
             ),
+            searchCubit.patientsList.isEmpty ?
+            const SimmerLoading(
+              height: 150,
+              width: double.infinity,
+              raduis: 10,
+            )
+                :
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return InkWell(
+                  return
+                    InkWell(
                     onTap: (){
                       Navigator.push(
                           context,
@@ -87,23 +95,23 @@ class SearchScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(
-                                searchCubit.names[index],
+                                searchCubit.patientsListSearchResults[index].name,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
                                   color: AppColors.whiteColor,
                                 ),
                               ),
-                              const Text(
-                                "21 Years Old",
-                                style: TextStyle(
+                                Text(
+                                searchCubit.patientsListSearchResults[index].age,
+                                style: const TextStyle(
                                   fontSize: 16,
                                   color: AppColors.whiteColor,
                                 ),
                               ),
-                              const Text(
-                                "Condition description",
-                                style: TextStyle(
+                               Text(
+                                searchCubit.patientsListSearchResults[index].condition,
+                                style:const TextStyle(
                                   fontSize: 16,
                                   color: AppColors.whiteColor,
                                 ),
@@ -120,7 +128,7 @@ class SearchScreen extends StatelessWidget {
                     height: 10,
                   );
                 },
-                itemCount: searchCubit.names.length,
+                itemCount: searchCubit.patientsListSearchResults.length,
               ),
             ),
             const SizedBox(height: 20,),

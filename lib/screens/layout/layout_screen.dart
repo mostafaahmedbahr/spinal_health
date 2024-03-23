@@ -23,12 +23,12 @@ class LayoutScreen extends StatefulWidget {
 }
 
 class _LayoutScreenState extends State<LayoutScreen> {
+
   static   List<TabItem> items = [
     TabItem(
       icon: Icons.home,
         title: LocaleKeys.home.tr(),
     ),
-    if(SharedPreferencesHelper.getData(key: "userType") =="Doctor")
     TabItem(
       icon: Icons.search_sharp,
       title: LocaleKeys.search.tr(),
@@ -41,7 +41,19 @@ class _LayoutScreenState extends State<LayoutScreen> {
     ),
   ];
 
+  static   List<TabItem> itemsPatient = [
+    TabItem(
+      icon: Icons.home,
+      title: LocaleKeys.home.tr(),
+    ),
+    TabItem(
+      icon: Icons.account_box,
+      title: LocaleKeys.profile.tr(),
+    ),
+  ];
+
   int visit = 0;
+  int visit2 = 0;
   double height = 30;
   final _advancedDrawerController = AdvancedDrawerController();
 
@@ -53,10 +65,13 @@ class _LayoutScreenState extends State<LayoutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SharedPreferencesHelper.getData(key: "userType");
     return BlocConsumer<LayoutCubit , LayoutStates>(
       listener: (context , state ){},
       builder: (context , state ){
         SharedPreferencesHelper.getData(key: "userType");
+        print( SharedPreferencesHelper.getData(key: "userType"));
+        print("aaa");
         var layoutCubit = LayoutCubit.get(context);
         return AdvancedDrawer(
           backdrop: Container(
@@ -170,7 +185,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 ),
               ),
             ),
-            body: Column(
+            body:
+              SharedPreferencesHelper.getData(key: "userType") =="Doctor" ?
+            Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -191,7 +208,30 @@ class _LayoutScreenState extends State<LayoutScreen> {
                   chipStyle:const ChipStyle(drawHexagon: true,color: AppColors.mainColor ,background: AppColors.blueColor),
                 ),
               ],
-            ),
+            ) :
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Expanded(
+                      child: layoutCubit.screensPatient[LayoutCubit.pageIndexForPatient]),
+                  BottomBarInspiredOutside(
+                    items: itemsPatient,
+                    backgroundColor: AppColors.primaryColor,
+                    color: AppColors.whiteColor,
+                    colorSelected: AppColors.whiteColor,
+                    indexSelected: visit2,
+                    onTap: (int index) => setState(() {
+                      visit2 = index;
+                      layoutCubit.changeBottomNavPatient(index , context);
+                    }),
+                    top: -25,
+                    animated: true,
+                    itemStyle: ItemStyle.hexagon,
+                    chipStyle:const ChipStyle(drawHexagon: true,color: AppColors.mainColor ,background: AppColors.blueColor),
+                  ),
+                ],
+              ),
 
           )),
         );
