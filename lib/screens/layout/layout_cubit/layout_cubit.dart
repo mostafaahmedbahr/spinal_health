@@ -19,16 +19,14 @@ class LayoutCubit extends Cubit<LayoutStates> {
   static int pageIndex = 0;
   List screens = [
      const HomeScreen(),
-    const SearchScreen(),
+    // const SearchScreen(),
     const ProfileScreen(),
-
-
   ];
 
 
   List<String> appBarTitles = [
      LocaleKeys.home.tr(),
-    LocaleKeys.search.tr(),
+    // LocaleKeys.search.tr(),
     LocaleKeys.profile.tr(),
 
   ];

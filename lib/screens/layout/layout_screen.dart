@@ -29,12 +29,10 @@ class _LayoutScreenState extends State<LayoutScreen> {
       icon: Icons.home,
         title: LocaleKeys.home.tr(),
     ),
-    TabItem(
-      icon: Icons.search_sharp,
-      title: LocaleKeys.search.tr(),
-    ),
-
-
+    // TabItem(
+    //   icon: Icons.search_sharp,
+    //   title: LocaleKeys.search.tr(),
+    // ),
     TabItem(
       icon: Icons.account_box,
       title: LocaleKeys.profile.tr(),

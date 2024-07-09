@@ -133,29 +133,29 @@ class LoginScreen extends StatelessWidget {
                           );
                         },
                       ),
-                      const CustomSizedBox(
-                        height: 40,
-                      ),
-                      // انشاء حساب
-                      CustomButton(
-                        height: 60,
-                        width: double.infinity,
-                        btnColor: AppColors.whiteColor,
-                        borderColor: AppColors.grey1Color,
-                        btnText: CustomText(
-                          text: LocaleKeys.createNewAccount.tr(),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          textColor: AppColors.blackColor,
-                        ),
-                        onPressed: () {
-                          AppNav.customNavigator(
-                            context: context,
-                            screen: const RegisterScreen(),
-                            finish: false,
-                          );
-                        },
-                      ),
+                      // const CustomSizedBox(
+                      //   height: 40,
+                      // ),
+                      // // انشاء حساب
+                      // CustomButton(
+                      //   height: 60,
+                      //   width: double.infinity,
+                      //   btnColor: AppColors.whiteColor,
+                      //   borderColor: AppColors.grey1Color,
+                      //   btnText: CustomText(
+                      //     text: LocaleKeys.createNewAccount.tr(),
+                      //     fontSize: 16,
+                      //     fontWeight: FontWeight.bold,
+                      //     textColor: AppColors.blackColor,
+                      //   ),
+                      //   onPressed: () {
+                      //     AppNav.customNavigator(
+                      //       context: context,
+                      //       screen: const RegisterScreen(),
+                      //       finish: false,
+                      //     );
+                      //   },
+                      // ),
                       const CustomSizedBox(
                         height: 20,
                       ),

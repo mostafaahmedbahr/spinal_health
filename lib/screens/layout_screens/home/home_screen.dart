@@ -42,6 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     });
   }
+  List<String> categories=[
+    "A","B","C","E"
+  ];
   @override
   Widget build(BuildContext context) {
     print(SharedPreferencesHelper.getData(key: "userType"));
@@ -202,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 20,),
                   SharedPreferencesHelper.getData(key: "userType") =="Doctor" ?
                   GridView.builder(
-                    itemCount: 5,
+                    itemCount: categories.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -213,15 +216,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-
                           Navigator.push(
                               context,
                               PageTransition(
                                   type: PageTransitionType.fade, child:     CategoryScreen(
-                                title: "Category (${index+1})",
+                                title: "Category (${categories[index]})",
                               )));
                         },
                         child: Container(
+                          alignment: AlignmentDirectional.center,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
 
@@ -229,22 +232,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                   color: AppColors.primaryColor
                               )
                           ),
-                          child: Stack(
-                            alignment : Alignment.topRight,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.asset("assets/images/4033.jpg",
-                                  fit: BoxFit.cover,
-                                  height: double.infinity,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Text("Category (${index+1})"),
-                              ),
-                            ],
-                          ),
+                          child: Text(categories[index],style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20
+                          ),),
+                          // child: Stack(
+                          //   alignment : Alignment.topRight,
+                          //   children: [
+                          //     ClipRRect(
+                          //       borderRadius: BorderRadius.circular(10),
+                          //       child: Image.asset("assets/images/4033.jpg",
+                          //         fit: BoxFit.cover,
+                          //         height: double.infinity,
+                          //       ),
+                          //     ),
+                          //     Padding(
+                          //       padding: const EdgeInsets.all(10.0),
+                          //       child: Text("${categories[index]}"),
+                          //     ),
+                          //   ],
+                          // ),
                         ),
                       );
                     },
